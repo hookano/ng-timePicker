@@ -7,7 +7,7 @@
         return {
             restrict: 'A',
             scope   : {
-                model: '='
+                ngModel: '='
             },
             link    : linkFunc
         };
@@ -16,9 +16,10 @@
             var id     = 'time-' + Date.now()
             var handle = null
 
-            scope.model = scope.model || {
+            scope.ngModel = scope.ngModel || {
                     hours  : 12,
-                    minutes: 0
+                    minutes: 0,
+                    seconds: 0
                 }
             element.addClass(id)
             element.attr('value', '12:00:00')
@@ -26,16 +27,17 @@
 
             // view to model
             handle.on('change', function () {
-                scope.model.hours   = this.value.hours
-                scope.model.minutes = this.value.minutes
-                scope.model.all     = element.val()
+                scope.ngModel.hours   = this.value.hours
+                scope.ngModel.minutes = this.value.minutes
+                scope.ngModel.seconds = this.value.seconds
+                scope.ngModel.all     = element.val()
 
                 scope.$applyAsync()
             });
 
 
             // model to view
-            scope.$watch('model', function (newVal) {
+            scope.$watch('ngModel', function (newVal) {
                 handle.value = newVal
                 handle.refreshInputs()
             })
