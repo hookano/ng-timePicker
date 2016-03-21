@@ -95,11 +95,17 @@ TimePicker.prototype.buildHTML = function () {
     // Inputs
     this.hoursInput       = document.createElement('input');
     this.hoursInput.className += ' hours';
+    this.hoursInput.type  = 'number'
+    this.hoursInput.max   = 23
+    this.hoursInput.min   = 0
     this.hoursInput.value = this.value.hours;
     this.hoursInput.setAttribute('maxlength', 2);
 
     this.minutesInput       = document.createElement('input');
     this.minutesInput.className += ' minutes';
+    this.minutesInput.type  = 'number'
+    this.minutesInput.max   = 59
+    this.minutesInput.min   = 0
     this.minutesInput.value = this.value.minutes;
     this.minutesInput.setAttribute('maxlength', 2);
 
