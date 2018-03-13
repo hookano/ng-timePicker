@@ -1,2 +1,3 @@
 require('./js/ng-TimePicker.js');
-module.exports = 'ng-timepicker';
+require('./js/timePicker.js');
+module.exports = 'timePicker';
