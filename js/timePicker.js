@@ -225,7 +225,7 @@ TimePicker.prototype.refreshInputs = function () {
     }
 
     this.el.value = this.toString();
-    angular.element(this.value).triggerHandler('change');
+    angular.element(this.el).triggerHandler('change');
 };
 
 TimePicker.prototype.on = function () {
