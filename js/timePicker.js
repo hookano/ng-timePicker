@@ -152,6 +152,9 @@ TimePicker.prototype.buildHTML = function () {
 };
 
 TimePicker.prototype.toString = function () {
+  if(this.hoursInput.value.length == 0 || this.hoursInput.value.length)
+    return undefined;
+
     var string = this.hoursInput.value + ':' + this.minutesInput.value;
     if (this.options.showSeconds) {
         string += ':' + this.secondsInput.value;
@@ -164,6 +167,11 @@ TimePicker.prototype.toString = function () {
 
 
 TimePicker.prototype.setValue = function (timeString) {
+  if(!timeString) {
+    this.value = {};
+    return;
+  }
+
     var values = timeString.split(':');
     this.value = {
         hours  : parseInt(values[0], 10),
