@@ -16,7 +16,7 @@
             var id     = 'time-' + Date.now()
             var handle = null
 
-            scope.ngModel = scope.ngModel || '12:00';
+            scope.ngModel = scope.ngModel;
             element.addClass(id)
             element.attr('value', scope.ngModel)
             handle = new TimePicker('.' + id) 
