@@ -152,7 +152,7 @@ TimePicker.prototype.buildHTML = function () {
 };
 
 TimePicker.prototype.toString = function () {
-  if(this.hoursInput.value.length == 0 || this.hoursInput.value.length)
+  if(this.hoursInput.value.length == 0 || this.minutesInput.value.length == 0)
     return undefined;
 
     var string = this.hoursInput.value + ':' + this.minutesInput.value;
