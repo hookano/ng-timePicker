@@ -27,11 +27,10 @@
                 scope.$applyAsync()
             });
 
-
-            // model to view
-            scope.$watch('ngModel', function (newVal) {
-              element.attr('value', newVal);
-            })
+          ctrl.$render = function () {
+                 handle.setValue(ctrl.$viewValue);
+                 handle.refreshInputs();
+             };
         }
     }
 })();
