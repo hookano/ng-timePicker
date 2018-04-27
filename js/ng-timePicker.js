@@ -6,9 +6,10 @@
     function timePicker($rootScope, $compile, $timeout) {
         return {
             restrict: 'A',
-            scope   : {
-                ngModel: '='
-            },
+            require: '^ngModel',
+            // scope   : {
+            //     ngModel: '='
+            // },
             link    : linkFunc
         };
 
@@ -19,18 +20,20 @@
             scope.ngModel = scope.ngModel;
             element.addClass(id)
             element.attr('value', scope.ngModel)
-            handle = new TimePicker('.' + id) 
+            handle = new TimePicker('.' + id)
 
             // view to model
             handle.on('change', function () {
                 scope.ngModel = element.val();
-                scope.$applyAsync()
+                ctrl.$setViewValue(scope.ngModel);
+                scope.$applyAsync();
             });
 
-          ctrl.$render = function () {
+            ctrl.$render = function () {
                  handle.setValue(ctrl.$viewValue);
                  handle.refreshInputs();
              };
+
         }
     }
 })();
